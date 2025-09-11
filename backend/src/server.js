@@ -10,16 +10,24 @@ dotenv.config({ path: "./.env" });
 const app = express();
 
 // 🟢 Middlewares
-app.use(cors({
-  origin: [
-    "https://medvault-three.vercel.app", // production frontend (Vercel)
-    "https://your-live-frontend-url.com", // add actual live frontend URL here
-    "http://localhost:3000",            // local dev (Next.js default)
-    "http://localhost:3001"             // if you run on port 3002 sometimes
-  ], // allow frontend dev port 3002
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
+const allowedOrigins = [
+  "https://medvault-three.vercel.app", // production frontend
+  "http://localhost:3000",             // local dev
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 
