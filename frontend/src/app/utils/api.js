@@ -1,7 +1,7 @@
 "use client"; 
 
 const API_BASE =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api"; // backend base url
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api" || "https://medvaultservice.onrender.com/"; // backend base url
 
 // ✅ Generic fetch utility
 export async function apiFetch(path, options = {}) {

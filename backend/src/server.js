@@ -11,7 +11,11 @@ const app = express();
 
 // 🟢 Middlewares
 app.use(cors({
-  origin: ["http://localhost:3000", "http://127.0.0.1:3000", "http://localhost:3002"], // allow frontend dev port 3002
+  origin: [
+    "https://medvault-five.vercel.app/", // production frontend (Vercel)
+    "http://localhost:3000",            // local dev (Next.js default)
+    "http://localhost:3001"             // if you run on port 3002 sometimes
+  ], // allow frontend dev port 3002
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
