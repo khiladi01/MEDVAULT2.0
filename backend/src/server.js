@@ -13,6 +13,7 @@ const app = express();
 app.use(cors({
   origin: [
     "https://medvault-five.vercel.app", // production frontend (Vercel)
+    "https://your-live-frontend-url.com", // add actual live frontend URL here
     "http://localhost:3000",            // local dev (Next.js default)
     "http://localhost:3001"             // if you run on port 3002 sometimes
   ], // allow frontend dev port 3002
