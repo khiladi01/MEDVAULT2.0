@@ -1,7 +1,7 @@
 "use client"; 
 
 const API_BASE =
-      process.env.NEXT_PUBLIC_API_URL || "https://medvault2-0.onrender.com"; // backend base url
+      process.env.NEXT_PUBLIC_API_URL || "https://medvault2-0.onrender.com/api"; // backend base url
 
 // ✅ Generic fetch utility
 export async function apiFetch(path, options = {}) {
@@ -28,14 +28,14 @@ export async function apiFetch(path, options = {}) {
 
 // ✅ Auth APIs
 export const registerUser = (formData) =>
-  apiFetch("/api/register", { method: "POST", body: formData });
+  apiFetch("/register", { method: "POST", body: formData });
 
 export const loginUser = (formData) =>
-  apiFetch("/api/login", { method: "POST", body: formData });
+  apiFetch("/login", { method: "POST", body: formData });
 
 // ✅ Protected APIs (token auto handled by cookie/session)
 export const getAppointments = () =>
-  apiFetch("/api/appointments", { method: "GET" });
+  apiFetch("/appointments", { method: "GET" });
 
 export const createAppointment = (formData) =>
-  apiFetch("/api/appointments", { method: "POST", body: formData });
+  apiFetch("/appointments", { method: "POST", body: formData });
