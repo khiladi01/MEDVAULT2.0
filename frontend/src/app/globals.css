@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+/* Apply Poppins font to all p tags and header tags */
+p, h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-poppins), sans-serif;
+}
+
+body{
+    background: linear-gradient(to right, #0f172a, #0e7490, #0f172a);
+    font-family: var(--font-poppins), sans-serif;
+}
+
+#hero{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./assets/herobg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: darken;
+}
+
+.phaseone{
+    box-shadow: inset 0px 0px 20px black;
+}
+
+/* #boxone{
+    box-shadow: inset 0px 0px 20px black;
+} */
+
+/* led */
+#led{
+    background-image: url("./assets/led.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#box{
+    box-shadow: inset 0px 0px 20px #000;
+}
+
+#boxone{
+    box-shadow:inset 0 4px 20px rgba(52, 152, 219, 0.25);
+}
+
+/* #boximg{
+    background-image: url(./assets/boximg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
+
+#clickbox{
+    box-shadow: inset 0 0px 10px #000;
+}
+#clickbox:hover{
+    background-color: #10b981;
+    /* color: white; */
+    box-shadow: inset 0 0px 15px #000;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+#clickboxsec{
+    box-shadow: inset 0 0px 10px #000;
+}
+#clickboxsec:hover{
+     background-color: #10b981;
+     /* color: white; */
+     box-shadow: inset 0 0px 15px #000;
+     transition: all 0.3s ease-in-out;
+     cursor: pointer;
+}
+
+
+/* form box */
+#formback{
+    background-image: url("./assets/formbackimg.jpg");
+    background-position: center;
+    background-size: cover;
+    /* background-color: #fff; */
+    /* box-shadow: inset 0 0 5px black; */
+}
+
+
+/* Profile */
+#bigborder{
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://cdn.pixabay.com/photo/2016/01/12/17/15/bless-you-1136219_1280.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+/* #sectionborder{
+    opacity: ;
+} */
