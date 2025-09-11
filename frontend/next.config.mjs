@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "https://medvaultservice.onrender.com/api/:path*", // backend target
+        destination: "https://medvault2-0.onrender.com/api/:path*", // backend target
       },
     ];
   },
