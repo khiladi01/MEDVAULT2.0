@@ -38,7 +38,7 @@ export default function Contact() {
     Swal.fire({
     title: "Fail!",
     text: "Your form has not been submitted successfully.",
-    icon: "fail",
+    icon: "error",
     confirmButtonText: "OK",
     });
     }

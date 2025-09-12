@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { apiFetch } from "@/app/utils/api";
+import { apiFetch } from "../utils/api.js";
 import { useRouter } from "next/navigation";
 
 export default function ProfilePage() {
@@ -30,12 +30,14 @@ export default function ProfilePage() {
     try {
       await apiFetch("/logout", { method: "POST" });
       localStorage.removeItem("medvault-user");
+      localStorage.removeItem("medvault-token");
       window.dispatchEvent(new Event('userLogout'));
       router.push("/");
     } catch (err) {
       console.error("Logout failed:", err);
       // Still clear localStorage and redirect
       localStorage.removeItem("medvault-user");
+      localStorage.removeItem("medvault-token");
       window.dispatchEvent(new Event('userLogout'));
       router.push("/");
     }

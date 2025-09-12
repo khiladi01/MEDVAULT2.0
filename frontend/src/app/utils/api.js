@@ -1,19 +1,25 @@
 "use client"; 
 
-const API_BASE =
-      process.env.NEXT_PUBLIC_API_URL || "https://medvault2-0.onrender.com/api"; // backend base url
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://medvault2-0.onrender.com/api" // backend base url
 
 // ✅ Generic fetch utility
 export async function apiFetch(path, options = {}) {
   const body = options.body ? JSON.stringify(options.body) : undefined;
+  const token = localStorage.getItem("medvault-token");
+
+  const headers = {
+    "Content-Type": "application/json",
+    ...(options.headers || {}),
+  };
+
+  if (token) {
+    headers.Authorization = `Bearer ${token}`;
+  }
 
   const res = await fetch(`${API_BASE}${path}`, {
     method: options.method || "POST",
-    headers: {
-      "Content-Type": "application/json",
-      ...(options.headers || {}),
-    },
-    credentials: "include",
+    headers,
+    credentials: "omit",
     body,
   });
 

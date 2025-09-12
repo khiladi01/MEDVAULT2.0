@@ -39,7 +39,7 @@ const loginUser = async (req, res, next) => {
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production", // only HTTPS in prod
-      sameSite: "lax",
+      sameSite: "none", // allow cross-origin
       maxAge: 60 * 60 * 1000, // 1h
     });
 
@@ -69,7 +69,7 @@ const loginUser = async (req, res, next) => {
       emergencycontactphone: user.emergencycontactphone,
     };
 
-    res.json({ message: "Login successful", user: userData });
+    res.json({ message: "Login successful", user: userData, token });
   } catch (error) {
     console.error("Login error:", error.message);
     next(error);
@@ -84,11 +84,13 @@ const logoutUser = (req, res) => {
 
 // Middleware: protect routes
 const authMiddleware = (req, res, next) => {
-  const token = req.cookies.token;
+  const authHeader = req.headers.authorization;
 
-  if (!token) {
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
     return res.status(401).json({ message: "Not authorized" });
   }
+
+  const token = authHeader.split(" ")[1];
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);

@@ -33,9 +33,10 @@ export default function LoginPage(){
       draggable: true
     });
 
-    // Store user data in localStorage
-    if (res.user) {
+    // Store user data and token in localStorage
+    if (res.user && res.token) {
       localStorage.setItem("medvault-user", JSON.stringify(res.user));
+      localStorage.setItem("medvault-token", res.token);
       // Dispatch event to update navbar
       window.dispatchEvent(new Event('userLogin'));
       // Redirect to home page

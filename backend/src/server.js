@@ -13,6 +13,7 @@ const app = express();
 const allowedOrigins = [
   "https://medvault-three.vercel.app", // production frontend
   "http://localhost:3000",             // local dev
+  "http://localhost:3001",             // local dev alternative port
 ];
 
 app.use(

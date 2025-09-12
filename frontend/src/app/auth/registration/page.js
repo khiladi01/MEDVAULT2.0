@@ -4,7 +4,7 @@ import Link from "next/link";
 import Swal from "sweetalert2";
 import { apiFetch } from "@/app/utils/api";
 
-export default function RegistartionPage() {
+export default function RegistrationPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   const [formData, setFormData] = useState({
