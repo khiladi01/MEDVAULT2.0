@@ -11,7 +11,7 @@ body{
 }
 
 #hero{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./assets/herobg.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./assets/med_herobg.jpg");
     background-position: center;
     background-size: cover;
     background-blend-mode: darken;
